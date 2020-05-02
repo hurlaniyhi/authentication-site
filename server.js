@@ -22,12 +22,17 @@ app.get("/",(req,res)=>{
 app.post("/",(req,res)=>{
     if(req.body.username == "sound wallet" && req.body.password == "1234"){
         
-        res.send("Successful")
+        res.redirect("/response")
     }
-    else{
-        res.send("Failed")
-    }
+   else{
+       res.redirect('/')
+   }
 })
+app.get("/response",(req,res)=>{
+    res.render("page/response")
+})
+
+
 
 app.listen(port,()=>{
     console.log("server is running on port 3000")
